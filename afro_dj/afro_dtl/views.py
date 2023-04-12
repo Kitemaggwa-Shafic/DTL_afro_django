@@ -17,3 +17,8 @@ def index(request):
         'index.html',
         {'p_title': p_title, 'username': username, 'gender': gender}
     )
+
+# preparing for the get request of the form
+def register(request):
+    # return take on arguments, (request, 'page to return', display you need to render with this template)
+    return render(request, 'register.html' )

@@ -1,7 +1,8 @@
 /*  */
-body{
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 header {
     background-color: purple;
     color: #fff;
@@ -10,10 +11,16 @@ header {
     width: 100%;
 }
 
+header a {
+    text-decoration: none;
+    list-style: none;
+    color: rgb(252, 139, 139);
+}
+
 header li {
     list-style: none;
     padding: 0 20px;
-    font-size: 18px; 
+    font-size: 18px;
 }
 
 .nav {
@@ -26,5 +33,21 @@ header li {
     margin-right: 15px;
 }
 
+#logo {
+    color: yellow;
+}
+#regform{
+    width: 80%;
+    padding: 10px; 
+}
 
+#regform input{
+    width: 80%;
+    padding: 15px;
+    margin: 10px;
+}
+
+.registerdiv{
+    text-align: center;
+}
 /* My custom css */

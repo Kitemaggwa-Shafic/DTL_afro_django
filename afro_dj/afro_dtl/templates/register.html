@@ -19,12 +19,12 @@
         <nav>
             <ul>
                 <li id="logo">{{ p_title}}</li>
-                
+
                 {% if user.is_authenticated%}
-                    <li class="navlink">{{username}}</li>
+                <li class="navlink">{{username}}</li>
                 {% else%}
-                    <li class="navlink">Login</li>
-                    <li class="navlink">Register</li>
+                <li class="navlink">Login</li>
+                <li class="navlink">Register</li>
                 {% endif%}
                 <li class="navlink">About</li>
                 <li class="navlink">Home</li>
@@ -32,18 +32,17 @@
         </nav>
 
     </header>
- 
-<div class="registerdiv">
-    <form action="" method="POST">
-        <input type="text" placeholder="Enter Your Username " name="username"/>
-        <input type="email" placeholder="Enter Your Email Address" name="email"/>
-        <input type="password" placeholder="Enter Your Password" name="password"/>
-        <input type="password" placeholder="Confirm Password" required="password"/>
-        <input type="submit" value="Register User" name="submit"/>
 
-    </form>
-
-</div>
+    <div class="registerdiv">
+        <form action="" method="POST" id="regform">
+            <h3>New User Registration</h3>
+            <input type="text" placeholder="Enter Your Username " name="username" />
+            <input type="email" placeholder="Enter Your Email Address" name="email" />
+            <input type="password" placeholder="Enter Your Password" name="password" />
+            <input type="password" placeholder="Confirm Password" required="password" />
+            <input type="submit" value="Register User" name="submit" />
+        </form>
+    </div>
 
     <footer>
 
