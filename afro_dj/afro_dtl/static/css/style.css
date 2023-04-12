@@ -13,6 +13,7 @@ header {
 header li {
     list-style: none;
     padding: 0 20px;
+    font-size: 18px; 
 }
 
 .nav {
@@ -22,7 +23,7 @@ header li {
 .navlink {
     display: flex;
     float: right;
-    margin-right: 45px;
+    margin-right: 15px;
 }
 
 

@@ -19,6 +19,13 @@
         <nav>
             <ul>
                 <li id="logo">{{ p_title}}</li>
+                
+                {% if user.is_authenticated%}
+                    <li class="navlink">{{username}}</li>
+                {% else%}
+                    <li class="navlink">Login</li>
+                    <li class="navlink">Register</li>
+                {% endif%}
                 <li class="navlink">About</li>
                 <li class="navlink">Home</li>
             </ul>
