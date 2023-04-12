@@ -26,14 +26,14 @@
                     <li class="navlink">Login</li>
                     <li class="navlink"><a href="{% url 'register' %}">Register</a></li>
                 {% endif%}
-                <li class="navlink">About</li>
-                <li class="navlink">Home</li>
+                <li class="navlink"><a href="{% url 'about' %}">About</a></li>
+                <li class="navlink"><a href="{% url 'index' %}">Home</a></li>
             </ul>
         </nav>
 
     </header>
     <!-- we are refering to our variable p_title  double braces tell htm we are escaping HTML and using python variable -->
-    <h1>{{ username}} Welcome to {{ p_title }} class </h1>
+    <h1>{{ username}} </h1><span> Welcome to {{ p_title }} class </span>
     <h3>Refactory Cohort-13</h3>
 
     <!-- a brace and percent sign, this below is used for tags and statements -->

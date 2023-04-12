@@ -18,19 +18,18 @@
     <header>
         <nav>
             <ul>
-                <li id="logo">{{ p_title}}</li>
+                <li>{{ p_title}}</li>
 
                 {% if user.is_authenticated%}
-                <li class="navlink">{{username}}</li>
+                    <li class="navlink">{{username}}</li>
                 {% else%}
-                <li class="navlink">Login</li>
-                <li class="navlink">Register</li>
+                    <li class="navlink">Login</li>
+                    <li class="navlink"><a href="{% url 'register' %}">Register</a></li>
                 {% endif%}
-                <li class="navlink">About</li>
-                <li class="navlink">Home</li>
+                    <li class="navlink">About</li>
+                    <li class="navlink"><a href="{% url 'index' %}">Home</a></li>
             </ul>
         </nav>
-
     </header>
 
     <div class="registerdiv">
