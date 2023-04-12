@@ -1,8 +1,5 @@
-<!-- 
-    Variables
-    CSS (in-styling)
- -->
-
+<!-- Loading of static files to our html template -->
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,14 +8,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ p_title }}</title>
+    <!-- Now accessing the static there a css dir and it has a style.css file
+         the added css on 2 to be renders within our html file -->
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
 </head>
 
 <body>
-    <!-- to hand -->
-     <!-- we are refering to our variable p_title  braces tell htm we are escaping HTML and using python variable -->
-    <h1>Welcome to {{ p_title }} </h1>
+
+    <header>
+        <nav>
+            <ul>
+                <li id="logo">{{ p_title}}</li>
+                <li class="navlink">About</li>
+                <li class="navlink">Home</li>
+            </ul>
+        </nav>
+
+    </header>
+    <!-- we are refering to our variable p_title  double braces tell htm we are escaping HTML and using python variable -->
+    <h1>{{ username}} Welcome to {{ p_title }} class </h1>
     <h3>Refactory Cohort-13</h3>
-    
+
+    <!-- a brace and percent sign, this below is used for tags and statements -->
+
+    <!-- checking if there is a var gender, if it exists we show msg in p tag -->
+    {% if gender %} 
+        <p>Greeting you are a Man</p>
+    {% else%}
+        <p>Your gender wasnt captured</p>
+    {% endif%}
+
+    <!-- Another block of if testing with male condition in if statement -->
+    {% if gender == 'Male' %}
+        <h2>Greeting Ssebo Mukulu</h2>
+    {% else %}
+        <h3>Greeting Madame mutya eyo</h3>
+    {% endif%}
+
+    <!--  -->
+    {% if username == 'Profic'%}
+        <h4>Yes you're my Bro <u>{{ username}}</u> I LOVE you men</h4>
+    {% elif username == 'Audrie'%}
+        <p>Yes youre my Daughter</p>
+    {% elif username == 'Mzee'%}
+        <p>Hey you're my Papa</p>
+    {% endif%}
 
     <footer>
 
