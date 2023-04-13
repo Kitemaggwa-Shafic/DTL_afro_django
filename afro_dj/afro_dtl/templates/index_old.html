@@ -35,7 +35,7 @@
             <ul>
                 <li id="logo">{{ p_title}}</li>
                  
-                    <li class="navlink">Hello, {{username}}</li>
+                    <li class="navlink">{{username}}</li>
  
                     <li class="navlink">Login</li>
                     <li class="navlink"><a href="{% url 'register' %}">Register</a></li>
@@ -46,8 +46,34 @@
         </nav>
     </header>
     <!-- we are refering to our variable p_title  double braces tell htm we are escaping HTML and using python variable -->
-    <h1>Welcome, {{ username}} </h1><span> to {{ p_title }} class  Refactory Cohort-13  </span>
-    
+    <h1>{{ username}} </h1><span> Welcome to {{ p_title }} class </span>
+    <h3>Refactory Cohort-13</h3>
+
+    <!-- a brace and percent sign, this below is used for tags and statements -->
+
+    <!-- checking if there is a var gender, if it exists we show msg in p tag -->
+    {% if gender %} 
+        <p>Greeting you are a Man</p>
+    {% else%}
+        <p>Your gender wasnt captured</p>
+    {% endif%}
+
+    <!-- Another block of if testing with male condition in if statement -->
+    {% if gender == 'Male' %}
+        <h2>Greeting Ssebo Mukulu</h2>
+    {% else %}
+        <h3>Greeting Madame mutya eyo</h3>
+    {% endif%}
+
+    <!--  -->
+    {% if username == 'Profic'%}
+        <h4>Yes you're my Bro <u>{{ username}}</u> I LOVE you men</h4>
+    {% elif username == 'Audrie'%}
+        <p>Yes youre my Daughter</p>
+    {% elif username == 'Mzee'%}
+        <p>Hey you're my Papa</p>
+    {% endif%}
+
     <footer>
 
     </footer>
