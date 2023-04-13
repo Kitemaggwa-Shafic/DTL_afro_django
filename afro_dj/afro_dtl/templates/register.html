@@ -18,7 +18,7 @@
     <header>
         <nav>
             <ul>
-                <li>{{ p_title}}</li>
+                <li id="logo">{{ p_title}}</li>
 
                 {% if user.is_authenticated%}
                     <li class="navlink">{{username}}</li>
@@ -32,16 +32,24 @@
         </nav>
     </header>
 
-    <div class="registerdiv">
-        <form action="" method="POST" id="regform">
-            <h3>New User Registration</h3>
+    <h3>New User Registration</h3>
+    <form action="" method="POST" id="regform">
+           
+        <div class="registerdiv">
             <input type="text" placeholder="Enter Your Username " name="username" />
             <input type="email" placeholder="Enter Your Email Address" name="email" />
+            <br>
+                <select name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            <br>
             <input type="password" placeholder="Enter Your Password" name="password" />
             <input type="password" placeholder="Confirm Password" required="password" />
             <input type="submit" value="Register User" name="submit" />
-        </form>
-    </div>
+        </div>
+    </form>
+
 
     <footer>
 

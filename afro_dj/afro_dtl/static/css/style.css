@@ -53,6 +53,12 @@ header li {
     margin-left: 20%;
 }
 
+#regform select {
+    width: 80%;
+    padding: 15px;
+    margin: 10px;
+}
+
 
 
 /* My custom css */

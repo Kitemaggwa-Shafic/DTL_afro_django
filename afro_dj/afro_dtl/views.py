@@ -28,3 +28,16 @@ def register(request):
 # About us HTML 
 def about_us(request):
     return render(request, 'about.html')
+
+
+# 
+def user_signup(request):
+    # checking is the request is post
+    if request == "POST":
+        username = request.POST.get['username'],
+        email = request.POST.get['email'],
+        gender = request.POST.get['gender'],
+        password = request.POST.get['password'],
+        cpassword = request.POST.get['cpassword'],
+    else:
+        pass

@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls), 
     # Including the path to the urls in our created afro_dtl App
     path('', include('afro_dtl.urls')),
 ]
