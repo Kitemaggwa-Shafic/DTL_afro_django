@@ -54,9 +54,13 @@ header li {
 }
 
 #regform select {
-    width: 80%;
+    width: 85%;
     padding: 15px;
     margin: 10px;
+}
+
+.sign_title{
+    margin-left: 40%;
 }
 
 

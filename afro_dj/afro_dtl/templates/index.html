@@ -16,7 +16,7 @@
 <body>
 
     <header>
-        <nav>
+        <!-- <nav>
             <ul>
                 <li id="logo">{{ p_title}}</li>
                 
@@ -29,8 +29,21 @@
                 <li class="navlink"><a href="{% url 'about' %}">About</a></li>
                 <li class="navlink"><a href="{% url 'index' %}">Home</a></li>
             </ul>
-        </nav>
+        </nav> -->
 
+        <nav>
+            <ul>
+                <li id="logo">{{ p_title}}</li>
+                 
+                    <li class="navlink">{{username}}</li>
+ 
+                    <li class="navlink">Login</li>
+                    <li class="navlink"><a href="{% url 'register' %}">Register</a></li>
+ 
+                <li class="navlink"><a href="{% url 'about' %}">About</a></li>
+                <li class="navlink"><a href="{% url 'index' %}">Home</a></li>
+            </ul>
+        </nav>
     </header>
     <!-- we are refering to our variable p_title  double braces tell htm we are escaping HTML and using python variable -->
     <h1>{{ username}} </h1><span> Welcome to {{ p_title }} class </span>

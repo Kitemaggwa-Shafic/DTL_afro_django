@@ -20,31 +20,35 @@
             <ul>
                 <li id="logo">{{ p_title}}</li>
 
-                {% if user.is_authenticated%}
-                    <li class="navlink">{{username}}</li>
-                {% else%}
+                   <li class="navlink">{{username}}</li>
+          
                     <li class="navlink">Login</li>
                     <li class="navlink"><a href="{% url 'register' %}">Register</a></li>
-                {% endif%}
+                
                     <li class="navlink">About</li>
                     <li class="navlink"><a href="{% url 'index' %}">Home</a></li>
             </ul>
         </nav>
     </header>
 
-    <h3>New User Registration</h3>
-    <form action="" method="POST" id="regform">
-           
+    <div class="sign_title">
+        <h3>New User Registration Signup</h3>
+    </div>
+     <form action="{% url 'registration' %}" method="POST" id="regform" enctype="multipart/form-data">
+        <!-- Django templating encryption type cross sites reference token
+        Django will know that data we post to view is in our application-->
+           {% csrf_token%}
         <div class="registerdiv">
-            <input type="text" placeholder="Enter Your Username " name="username" />
-            <input type="email" placeholder="Enter Your Email Address" name="email" />
+            <input type="text" placeholder="Enter Your Username " name="username" required />
+            <input type="email" placeholder="Enter Your Email Address" name="email" required />
             <br>
-                <select name="gender">
+                <select name="gender" required>
+                    <option>Select Gender</option> 
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
             <br>
-            <input type="password" placeholder="Enter Your Password" name="password" />
+            <input type="password" placeholder="Enter Your Password" name="password" required />
             <input type="password" placeholder="Confirm Password" required="password" />
             <input type="submit" value="Register User" name="submit" />
         </div>

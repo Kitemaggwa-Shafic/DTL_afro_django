@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
+# Using django contrib package and use the different methods in like authenticate, login, logout 
+from django.contrib.auth import authenticate, login, logout
+
 # Create your views here.
 
 # My index view
@@ -25,19 +28,21 @@ def register(request):
     return render(request, 'register.html' )
 
 
-# About us HTML 
+# About HTML 
 def about_us(request):
     return render(request, 'about.html')
 
 
-# 
-def user_signup(request):
+# user_sign up method to handle the user_signup 
+def registration(request):
     # checking is the request is post
-    if request == "POST":
-        username = request.POST.get['username'],
-        email = request.POST.get['email'],
-        gender = request.POST.get['gender'],
-        password = request.POST.get['password'],
-        cpassword = request.POST.get['cpassword'],
-    else:
-        pass
+        username = request.POST['username']
+        email = request.POST['email']
+        gender = request.POST['gender']
+        password = request.POST['password']
+
+        # created a simple user details list
+        user_details = [username,email,gender,password]
+        print(user_details)
+        return render(request, 'index.html', {'username':username, 'email':email})
+    
