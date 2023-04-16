@@ -14,5 +14,8 @@ In this project tried to get through how to use the above major aspects of Djang
  
 ## Contributing
 This is a demo class DTL project
- 
-  
+
+## Customer register template
+
+ ![readme](https://user-images.githubusercontent.com/54108967/231879693-0a69cb94-01aa-4a17-95c9-e085f3660931.jpg)
+
