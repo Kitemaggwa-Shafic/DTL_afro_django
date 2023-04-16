@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ pr_title }}</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <script src=""></script>
+    </head>
+    <body>
+        <header>
+
+            <nav>
+                <ul>
+                    <li id='logo'>{{ pr_title }}</li>
+                    {% if user.isnot_authenticated %}
+                     <li class='navlink'>{{user.username}}</li>
+                    {% else %}
+                     <li class="navlink">Login</li>
+                     <li class="navlink"><a href="{% url 'register' %}">Register</a></li>
+                    {% endif %}
+                    <li class="navlink">About</li>
+                    <li class="navlink"><a href="{% url 'index' %}">Home</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- form action is the url where the form posts its data -->
+        <!-- method is the type of request made by the form either post or get -->
+        <div class="sign_title">
+            <h3>User Login Page</h3>
+        </div>
+        <form action="{% url 'login_user' %}" id="regform" method="POST" enctype="multipart/form-data">
+ 
+            {% csrf_token %}
+            <div class="registerdiv">                <!-- all data captured within a form can be accessed in the views 
+                using the name of that field -->
+                <input placeholder="Username" name="username" type="text" required>
+                <br> 
+                <input placeholder="Password" name="password" type="password" required>
+                <br> 
+                <button type="submit" class="button1" title="Login" id="signupbtn">Login</button> 
+                <span href="">New User, <a href="{% url 'register' %}">Register Now</a>  </span>
+ 
+            </div>
+        </form>
+        <footer>
+
+        </footer>
+    </body>
+</html>

@@ -36,8 +36,10 @@
     </div>
      <form action="{% url 'registration' %}" method="POST" id="regform" enctype="multipart/form-data">
         <!-- Django templating encryption type cross sites reference token
-        Django will know that data we post to view is in our application-->
+        Django will know that data we post to view is in our application -->
            {% csrf_token%}
+           <!-- {% csrf_token %} is a built-in template tag in Django that renders a hidden input field containing a 
+            CSRF (Cross-Site Request Forgery) token in a form. -->
         <div class="registerdiv">
             <input type="text" placeholder="Enter Your Username " name="username" required />
             <input type="email" placeholder="Enter Your Email Address" name="email" required />
@@ -50,7 +52,14 @@
             <br>
             <input type="password" placeholder="Enter Your Password" name="password" required />
             <input type="password" placeholder="Confirm Password" required="password" />
-            <input type="submit" value="Register User" name="submit" />
+
+            <input type="submit" value="Register User" name="submit" style="width:60%" />
+            <span href="">Registered User, <a href="{% url 'login_page' %}">Login Now</a>  </span>
+
+            <!-- <button type="submit" class="button1" title="Login" id="signupbtn">Login</button> 
+            <span href="">Registered User, <a href="{% url 'login_page' %}">Login Now</a>  </span> -->
+ 
+
         </div>
     </form>
 

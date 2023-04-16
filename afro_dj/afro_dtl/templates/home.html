@@ -41,21 +41,29 @@
                 <li id="logo">{{ p_title}}</li>  
                 {% if user.is_authentic%}
                     <li class="navlink">Signup</li>
-                    <li class="navlink">Login</li>
+                    <li class="navlink">Login</li> 
+                {% else%}
+                    <h1 style="color:blue">{{ username}} </h1><span> Welcome Back to my Inventory System </span>
+                    <!-- <h1>Password: {{ password}} </h1> -->   
+                    <li class="navlink"><a href="#">Logout</a></li>
+                    <li class="navlink"><a href="#">New Stock</a></li> 
+                    <li class="navlink"><span>{{ user_name}}</span></li>
+                    <li class="navlink"><a href="{% url 'about' %}">About</a></li>
+                    <li class="navlink"><a href="{% url 'index' %}">Home</a></li>
                 {% endif%}
-                   
-                <li class="navlink"><a href="{% url 'login_page' %}">Login</a></li>
-                <li class="navlink"><a href="{% url 'register' %}">Register</a></li>
- 
-                <li class="navlink"><a href="{% url 'about' %}">About</a></li>
-                <li class="navlink"><a href="{% url 'index' %}">Home</a></li>
-
-                <!-- <li class="navlink"><a href="{% url 'index_old' %}">Old index</a></li> -->
-
             </ul>
         </nav>
     </header>
-  <h1> DTL Templating Index / Home file</h1>
+      
+    <h1>MY HOME LANDING PAGE</h1>
+     
+   
+        {% if user.is_authentic%}
+           <span>User Name: {{user.user_name}}</span>
+           <span>Email : {{user.email}}</span> 
+        {% endif%}
+    
+     
     <footer>
 
     </footer>
