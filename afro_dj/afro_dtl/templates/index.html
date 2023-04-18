@@ -1,65 +1,9 @@
+<!-- index inheritating from the base template -->
+{% extends 'base.html' %}
+{% block content %}
 <!-- Loading of static files to our html template -->
 {% load static%}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ p_title }}</title>
-    <!-- Now accessing the static there a css dir and it has a style.css file
-         the added css on 2 to be renders within our html file -->
-    <link rel="stylesheet" href="{% static 'css/style.css'%}">
-</head>
-
-<body>
-
-    <header>
-<!-- 
-        <nav>
-            <ul>
-                <li id="logo">{{ p_title}}</li>
-                
-                {% if user.is_authenticated%}
-                    <li class="navlink">Hello, {{username}}</li>
-                {% else%}
-                    <li class="navlink">Login</li>
-                    <li class="navlink"><a href="{% url 'register' %}">Register</a></li>
-                {% endif%}
-                <li class="navlink"><a href="{% url 'about' %}">About</a></li>
-                <li class="navlink"><a href="{% url 'index' %}">Home</a></li>
-            </ul>
-        </nav> 
-     
-    # we are refering to our variable p_title  double braces tell htm we are escaping HTML and using python variable    
-    <h1>Welcome, {{ username}} </h1><span> to {{ p_title }} class  Refactory Cohort-13  </span>
--->
-
-        <nav>
-            <ul>
-                <li id="logo">{{ p_title}}</li>  
-                {% if user.is_authentic%}
-                    <li class="navlink">Signup</li>
-                    <li class="navlink">Login</li>
-                {% endif%}
-                   
-                <li class="navlink"><a href="{% url 'login_page' %}">Login</a></li>
-                <li class="navlink"><a href="{% url 'register' %}">Register</a></li>
- 
-                <li class="navlink"><a href="{% url 'about' %}">About</a></li>
-                <li class="navlink"><a href="{% url 'index' %}">Home</a></li>
-
-                <!-- <li class="navlink"><a href="{% url 'index_old' %}">Old index</a></li> -->
-
-            </ul>
-        </nav>
-    </header>
   <h1> DTL Templating Index / Home file</h1>
-    <footer>
-
-    </footer>
-
-</body>
-
-</html>
+ 
+{% endblock %}

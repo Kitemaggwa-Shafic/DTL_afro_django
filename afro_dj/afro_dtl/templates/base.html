@@ -1,0 +1,80 @@
+<!-- Loading of static files to our html template -->
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ p_title }}</title>
+    <!-- Now accessing the static there a css dir and it has a style.css file
+         the added css on 2 to be renders within our html file -->
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+
+<body>
+
+    <header>
+        <!-- 
+        <nav>
+            <ul>
+                <li id="logo">{{ p_title}}</li>
+                
+                {% if user.is_authenticated%}
+                    <li class="navlink">Hello, {{username}}</li>
+                {% else%}
+                    <li class="navlink">Login</li>
+                    <li class="navlink"><a href="{% url 'register' %}">Register</a></li>
+                {% endif%}
+                <li class="navlink"><a href="{% url 'about' %}">About</a></li>
+                <li class="navlink"><a href="{% url 'index' %}">Home</a></li>
+            </ul>
+        </nav> 
+     
+    # we are refering to our variable p_title  double braces tell htm we are escaping HTML and using python variable    
+    <h1>Welcome, {{ username}} </h1><span> to {{ p_title }} class  Refactory Cohort-13  </span>
+-->
+
+        <nav>
+            <ul>
+                <li id="logo">{{ p_title}}</li>
+                {% if user.is_authentic %}
+                    <li class="navlink"><a href="{% url 'logout_user' %}">Logout</a></li>
+                    <li class="navlink"><a href="{% url 'about' %}">About</a></li>
+                    <li class="navlink"><a href="{% url 'index' %}">Home</a></li>
+                {% else %}
+                    <li class="navlink"><a href="{% url 'login_page' %}">Login</a></li>
+                    <li class="navlink"><a href="{% url 'register' %}">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <div id="page_content">
+    {%if messages %}
+    <div id="flash_messages">
+        <ul>
+            <li class="messages">{{message}}</li>
+        </ul>
+    </div>
+    {% endif %}
+
+    <!-- Telling Django that this where the next block of content is
+    all everything will be inheriteted and will be fixed in here 
+    All changing content of the child will be included in the block for the other pages inheritating this base.html-->
+    {% block content %}
+
+
+    {% endblock %}
+
+</div>
+    <footer>
+        <div class="footer-text">
+            <p><i>All rights reserved &copy; profic 2023.</i></p>
+        </div>
+    </footer>
+</div>
+
+</body>
+
+</html>

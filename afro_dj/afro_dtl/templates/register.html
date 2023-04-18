@@ -35,8 +35,9 @@
         <h3>New User Registration Signup</h3>
     </div>
      <form action="{% url 'registration' %}" method="POST" id="regform" enctype="multipart/form-data">
-        <!-- Django templating encryption type cross sites reference token
-        Django will know that data we post to view is in our application -->
+        <!-- Django templating encryption type Cross-Site Reference Token
+        Django will know that data we post to view is in our application 
+        security feature aganist sql injection-->
            {% csrf_token%}
            <!-- {% csrf_token %} is a built-in template tag in Django that renders a hidden input field containing a 
             CSRF (Cross-Site Request Forgery) token in a form. -->

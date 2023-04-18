@@ -137,3 +137,22 @@ header li {
     font-size: 16px;
     border-radius: 15px;
 }
+
+footer {
+    background-color: #941a6f; 
+    margin-top: 80%;
+    align-items: center;   
+    bottom: 0;
+    position: absolute; 
+    padding: 0 45%;
+
+}
+
+.footer-text{
+    text-align: center;
+    color: #fff;
+}
+
+#page_content h1{
+    text-align: center;
+}

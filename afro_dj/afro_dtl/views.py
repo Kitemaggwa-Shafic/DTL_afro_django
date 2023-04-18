@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 
 # Using django contrib package and use the different methods in like authenticate, login, logout 
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import User_Signup
 
@@ -69,13 +70,14 @@ def index_old(request):
     return render(request, 'index_old.html')
 
 
-# 
 # Function to login in user
 def login_user(request):
     user_name = request.POST['username']
     pwd = request.POST['password']
-    if User.objects.filter(username=user_name):
+    # Check through username and see if the user_name posted here is = to what he has pu on form
+    if User.objects.filter(username=user_name): 
         print("This username exists.")
+        # sending authetic request to db for both username and password
         logged_user = authenticate(request, username=user_name, password=pwd)
         if logged_user is not None:
             # here we are logging in the user
@@ -93,3 +95,9 @@ def login_user(request):
 
 def login_page(request):
     return render(request, 'login.html')
+
+
+@login_required
+def logout_user(request):
+    auth_logout(request)
+    return redirect('login_page')
