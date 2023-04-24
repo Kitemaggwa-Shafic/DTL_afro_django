@@ -4,24 +4,6 @@
 <!-- Loading of static files to our html template -->
 {% load static%}
 
-  {% if user.is_authenticated %}
-    <h1> welcome to the {{ pr_title }} Dashboard</h1>
-  {% else %}
-    <h1>Hello Mr.{{ author }} welcome to the {{ pr_title }}</h1>
-  {% endif %}
-
-  <form>
-    
-  </form>
-
-  <!-- {% if gender == 'Male' %}
-    <p>Greeting Sir</p>
-  {% else %}
-    <p>Greeting Madame</p>
-  {% endif %} -->
-
-  {% if author %}
-    <p>This program is designed by : {{ author }}</p>
-  {% endif %}
+  <h1> DTL Templating Index / Home file</h1>
  
 {% endblock %}

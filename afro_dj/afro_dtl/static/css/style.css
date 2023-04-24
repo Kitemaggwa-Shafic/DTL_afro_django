@@ -139,12 +139,13 @@ header li {
 }
 
 footer {
-    background-color: #c982b4; 
+    background-color: #941a6f; 
     margin-top: 80%;
     align-items: center;   
     bottom: 0;
     position: absolute; 
     padding: 0 45%;
+
 }
 
 .footer-text{
@@ -154,22 +155,4 @@ footer {
 
 #page_content h1{
     text-align: center;
-}
-
-#flash_messages{
-    color: #fff;
-    background-color: rgb(155, 151, 151);
-    width: 60%;
-    text-align: center;
-    margin: 1% 20%;
-}
-
-#close_button{
-    color: #fff;
-    background-color: red;
-    border-radius: 40%;
-}
-
-#messages{
-    
 }

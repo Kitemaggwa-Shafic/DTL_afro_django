@@ -3,13 +3,17 @@
 <!-- Loading of static files to our html template -->
 {% load static%}
 
-
-
-<h1>MY HOME LANDING PAGE</h1>
-
-hello Mr.{{username }} welcome to the {{pr_title }}
-
-
-
-
-{% endblock %}
+ 
+      
+    <h1>MY HOME LANDING PAGE</h1>
+     
+   
+        {% if user.is_authentic%}
+           <span>User Name: {{user.user_name}}</span>
+           <span>Email : {{user.email}}</span> 
+        {% endif%}
+    
+    
+        
+{% end block content %}
+ 
