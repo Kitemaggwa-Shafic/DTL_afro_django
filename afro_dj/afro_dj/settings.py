@@ -127,7 +127,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+# Added messages to use in bootstrap CSS  automatically baing on the tag that will be sent in views eg sucess, erro etc
 MESSAGE_TAGS = { 
         messages.DEBUG: 'alert-secondary',
         messages.INFO: 'alert-info',
