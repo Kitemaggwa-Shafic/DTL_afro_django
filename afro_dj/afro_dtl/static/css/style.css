@@ -4,8 +4,7 @@ body {
 }
 
 header {
-    background-color: #720760
-    ;
+    background-color: #720760;
     color: #fff;
     min-height: 100px;
     padding-top: 20px;
@@ -17,11 +16,17 @@ header a {
     list-style: none;
     color: rgb(252, 139, 139);
 }
+header a:hover {
+    text-decoration: none;
+    list-style: none;
+    color: rgb(252, 139, 139);
+}
 
 header li {
     list-style: none;
     padding: 0 20px;
     font-size: 18px;
+    text-decoration: none;
 }
 
 .nav {
@@ -54,8 +59,12 @@ header li {
     margin-left: 20%;
 }
 
+.registerdiv select{
+    width: 80%;
+}
+
 #regform select {
-    width: 85%;
+    width: 80%;
     padding: 15px;
     margin: 10px;
 }
@@ -140,10 +149,9 @@ header li {
 
 footer {
     background-color: #941a6f; 
-    margin-top: 80%;
+    margin-top: auto;
     align-items: center;   
     bottom: 0;
-    position: absolute; 
     padding: 0 45%;
 
 }

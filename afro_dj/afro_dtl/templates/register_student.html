@@ -1,0 +1,43 @@
+<!-- Loading of static files to our html template -->
+{% extends 'base.html' %}
+{% load static%}
+{% block content%}
+
+
+    <div class="sign_title">
+        <h3>New Student Registration </h3>
+    </div>
+<div> 
+     <form action="{% url 'register_student' %}" method="POST" id="regform" enctype="multipart/form-data">
+        <!-- Django templating encryption type Cross-Site Reference Token
+        Django will know that data we post to view is in our application 
+        security feature aganist sql injection-->
+           {% csrf_token%}
+           <!-- {% csrf_token %} is a built-in template tag in Django that renders a hidden input field containing a 
+            CSRF (Cross-Site Request Forgery) token in a form. -->
+        <div class="registerdiv">
+            <input type="text" placeholder="Enter Student First Name " name="sname" required />
+            <input type="text" placeholder="Enter Student Last Name" name="lname" required />
+            <select name="stdclass" required>
+                    <option>Select Student Class</option> 
+                    <option value="S1">S1</option>
+                    <option value="S2">S2</option>
+                    <option value="S3">S3</option>
+                    <option value="S4">S4</option>
+                    <option value="S5">S5</option>
+                    <option value="S6">S6</option>
+                 </select>
+            <br>
+                <select name="gender" required>
+                    <option>Select Gender</option> 
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            <br>
+            <input type="text" placeholder="Enter Student Age" name="age" required />
+            <input type="text" placeholder="Enter Student Address" name="address" required="password" />
+            <input type="submit" value="Register Student" name="submit" style="width:60%" /> 
+        </div>
+    </form>
+</div>
+{% endblock %}

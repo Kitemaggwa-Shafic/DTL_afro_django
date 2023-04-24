@@ -1,36 +1,7 @@
+{% extends 'base.html' %}
 <!-- Loading of static files to our html template -->
 {% load static%}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ p_title }}</title>
-    <!-- Now accessing the static there a css dir and it has a style.css file
-         the added css on 2 to be renders within our html file -->
-    <link rel="stylesheet" href="{% static 'css/style.css'%}">
-</head>
-
-<body>
-
-    <header>
-        <nav>
-            <ul>
-                <li id="logo">{{ p_title}}</li>
-
-                   <li class="navlink">{{username}}</li>
-          
-                    <li class="navlink">Login</li>
-                    <li class="navlink"><a href="{% url 'register' %}">Register</a></li>
-                
-                    <li class="navlink">About</li>
-                    <li class="navlink"><a href="{% url 'index' %}">Home</a></li>
-            </ul>
-        </nav>
-    </header>
-
+{% block content %}
     <div class="sign_title">
         <h3>New User Registration Signup</h3>
     </div>
@@ -64,11 +35,4 @@
         </div>
     </form>
 
-
-    <footer>
-
-    </footer>
-
-</body>
-
-</html>
+{% endblock %}
