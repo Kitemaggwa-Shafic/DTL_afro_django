@@ -25,24 +25,19 @@
     <header>
         <!-- 
         <nav>
-                        <ul class="nav nav-expand-lg nav-dark bg-info mr-auto">
-
-                        <div class="col-md-3"><li id='logo' class="nav-item">{{ pr_title }}</li></div>
-                        <div class="col-md-4"></div>
-                            {% if user.is_authenticated %}
-                                <li class="nav-item" ><a href="{% url 'logout_user' %}" class="nav-link"> <button class="btn btn-outline-primary btn-md">Logout</button></a></li>
-                                <li class="nav-item" ><a href="{% url 'index' %}" class="nav-link"><button class="btn btn-outline-primary btn-md"> Home</button></a></li>
-                                <li class="nav-item" ><a href="{% url 'userforminfo' %}" class="nav-link"><button class="btn btn-outline-primary btn-md">Users</button> </a></li>
-                                <li class="nav-item" ><a href="{% url 'user_form' %}" class="nav-link"><button class="btn btn-outline-primary btn-md">contact us</button></a></li>
-                            {% else %}
-                                <li class="nav-item" ><a href="{% url 'userforminfo' %}" class="nav-link"><button class="btn btn-outline-primary btn-md">Users</button> </a></li>
-                                <li class="nav-item" ><a href="{% url 'user_form' %}" class="nav-link"><button class="btn btn-outline-primary btn-md">form</button></a></li>
-                                <li class="nav-item"><a href="{% url 'login_page' %}" class="nav-link"><button class="btn btn-outline-primary btn-md"> Login</button></a> </li>
-                                <li class="nav-item" ><a href="{% url 'register' %}" class="nav-link"><button class="btn btn-outline-primary btn-md">Register</button></a></li>
-                            {% endif %}
-                        </div> 
-                        </ul>
-                    </nav>
+            <ul>
+                <li id="logo">{{ p_title}}</li>
+                
+                {% if user.is_authenticated%}
+                    <li class="navlink">Hello, {{username}}</li>
+                {% else%}
+                    <li class="navlink">Login</li>
+                    <li class="navlink"><a href="{% url 'register' %}">Register</a></li>
+                {% endif%}
+                <li class="navlink"><a href="{% url 'about' %}">About</a></li>
+                <li class="navlink"><a href="{% url 'index' %}">Home</a></li>
+            </ul>
+        </nav> 
      
     # we are refering to our variable p_title  double braces tell htm we are escaping HTML and using python variable    
     <h1>Welcome, {{ username}} </h1><span> to {{ p_title }} class  Refactory Cohort-13  </span>
@@ -52,15 +47,12 @@
             <ul>
                 <li id="logo">{{ pr_title}}</li>
                 {% if user.is_authenticated %}
-                    <li style="color:blue">{{ username }}</li> 
-                        <span> Welcome Back to my Inventory System </span></li>
-                   
                     <li class="navlink"><a href="{% url 'logout_user' %}">Logout</a></li>
-                    <li class="navlink"><a href="{% url 'about' %}">About</a></li>    
+                    <li class="navlink"><a href="{% url 'about' %}">About</a></li>
+                    
                     <li class="navlink"><a href="{% url 'user_form' %}">Add User Info</a></li> 
                     <li class="navlink"><a href="{% url 'home' %}">Home</a></li>
                 {% else %}
-                    <li style="color:blue">{{ username }} <span> Welcome to my Inventory System </span></li>
                     <li class="navlink"><a href="{% url 'login_page' %}">Login</a></li>
                     <li class="navlink"><a href="{% url 'register' %}">Register</a></li>
                     <li class="navlink"><a href="{% url 'user_form' %}">Add User Info</a></li>
@@ -73,17 +65,41 @@
     <div id="page_content">
         
         {% if user.is_authenticated %}
-       
-         
-                   
+        <!-- with sets a variable messages set to be used with in this template only -->
+            {% if messages %}
+                <div id="flash_messages"> 
+                    <ul>
+                        {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                            <p class="messages">{{messages}}</p> 
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    
+                    <button id="close_button" onclick="hide('flash_messages')">Close</button>
+                </div>
+                {% endif %} 
+            <h1>Mr.{{ username }} logged into {{ pr_title }} sucecessfuly</h1>
+              
         {% endif %}
- 
+
+        <!-- Adding in flash messages for sucess and error messages basing on whatever it is  -->
+        <!-- {% if messages %}
+            <div class="messages">
+            {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+                    {{ message }}
+                </div>
+            {% endfor %}
+            </div>
+        {% endif %} -->
+
         <!-- Formatted Django messages with boostrapp CSS -->
         {% for message in messages %}
             <div class="container-fluid p-0" id="message_container" >
             <!-- line creates a Bootstrap alert box with the appropriate style based on the message tag. 
                 The message.tags variable is a string that specifies the message tag (e.g. 'success', 'warning', 'error', etc.). -->
-            <div class="alert {{ message.tags }} alert-dismissible" role="alert"  >
+            <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="True">&times;</span>
                 </button>
@@ -114,7 +130,6 @@
  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
 
  <!-- This JS script here is for timing my bootstrap alert messages for 5s only and disappear -->
  <script>

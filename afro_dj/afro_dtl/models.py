@@ -13,3 +13,14 @@ class User_Signup(models.Model):
     def __str__(self):
         return self.username
 # After this class, then create a view
+
+
+
+#test model
+class User_form_model(models.Model):
+    name =  models.CharField(max_length=1000)
+    email = models.EmailField(max_length=1000)
+    occupation = models.CharField(max_length=1000)
+    message = models.TextField(max_length=1000)
+    def __str__(self):
+        return self.name
